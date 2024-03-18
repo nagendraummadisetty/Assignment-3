@@ -1,30 +1,33 @@
-class Parent {
-    public void display() {
-        System.out.println("This is the display method of the Parent class");
+class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape");
     }
 
-    public void display(String message) {
-        System.out.println("Message from Parent class: " + message);
+    public void draw(String color) {
+        System.out.println("Drawing a shape with color " + color);
     }
 }
 
-class Child extends Parent {
+class Circle extends Shape {
     @Override
-    public void display() {
-        System.out.println("This is the display method of the Child class");
+    public void draw() {
+        System.out.println("Drawing a circle");
     }
 
-    public void display(int number) {
-        System.out.println("Number from Child class: " + number);
+    public void draw(String color, int radius) {
+        System.out.println("Drawing a circle with color " + color + " and radius " + radius);
     }
+}
+
+public class Parent {
 
     public static void main(String[] args) {
-        Parent parent = new Parent();
-        parent.display();
-        parent.display("Hello");
+        Shape shape = new Shape();
+        shape.draw();
+        shape.draw("red");
 
-        Child child = new Child();
-        child.display();
-        child.display(144);
+        Circle circle = new Circle();
+        circle.draw();
+        circle.draw("blue", 5);
     }
 }
